@@ -6,7 +6,7 @@
 /*   By: mimazouz <mimazouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:03:59 by mimazouz          #+#    #+#             */
-/*   Updated: 2015/12/12 17:18:23 by fkoehler         ###   ########.fr       */
+/*   Updated: 2015/12/15 11:35:26 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int		isvalid_tetri(char *str, char c)
 		if (str[i] == c)
 		{
 			nb_char++;
-			if (str[i - 5] && str[i - 5] == c)
+			if (i >= 5 && str[i - 5] == c)
 				neighbour++;
-			if (str[i - 1] && str[i - 1] == c)
+			if (i >= 1 && str[i - 1] == c)
 				neighbour++;
-			if (str[i + 1] && str[i + 1] == c)
+			if (i < 19 && str[i + 1] == c)
 				neighbour++;
-			if (str[i + 5] && str[i + 5] == c)
+			if (i < 15 && str[i + 5] == c)
 				neighbour++;
 		}
 		i++;

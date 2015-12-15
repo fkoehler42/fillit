@@ -6,7 +6,7 @@
 /*   By: fkoehler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 12:03:21 by fkoehler          #+#    #+#             */
-/*   Updated: 2015/12/12 18:19:50 by fkoehler         ###   ########.fr       */
+/*   Updated: 2015/12/15 13:06:31 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,24 @@ void	print_tetris(t_tetri **tab, int nb_tetris)
 	}
 }
 
+void	print_square(char **square)
+{
+	int	i;
+
+	i = 0;
+	while (square[i])
+	{
+		ft_putendl(square[i]);
+		i++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	int	fd;
-	int	nb_tetri;
+	int		fd;
+	int		nb_tetri;
+	char	**square;
+	t_tetri	**tetris_array;
 	
 	if (argc != 2)
 	{
@@ -53,9 +67,11 @@ int	main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		return (0);
-t_tetri **tab = copy_tetris(fd, nb_tetri);
+	tetris_array = copy_tetris(fd, nb_tetri);
 	if (close(fd) == -1)
 		return (0);
 	print_tetris(tab, nb_tetri);
+	square = ft_resolve_fillit(tetris_array, nb_tetri);
+	print_square(square);
 	return (0);
 }
