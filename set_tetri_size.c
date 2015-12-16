@@ -6,7 +6,7 @@
 /*   By: fkoehler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/12 16:31:57 by fkoehler          #+#    #+#             */
-/*   Updated: 2015/12/12 17:34:26 by fkoehler         ###   ########.fr       */
+/*   Updated: 2015/12/16 11:23:11 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	set_tetri_height(t_tetri *tetri)
 {
 	int		i;
 	size_t	height;
-	
+
 	i = 0;
 	height = 0;
 	while (i < 4)

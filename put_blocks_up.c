@@ -6,7 +6,7 @@
 /*   By: fkoehler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/12 13:21:56 by fkoehler          #+#    #+#             */
-/*   Updated: 2015/12/12 17:56:58 by fkoehler         ###   ########.fr       */
+/*   Updated: 2015/12/16 11:22:39 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	put_blocks_up(t_tetri *tetri)
 			ft_strcpy(tetri->array[i], tetri->array[i + 1]);
 			i++;
 		}
-		ft_strcpy(tetri->array[3], "....");		
+		ft_strcpy(tetri->array[3], "....");
 	}
 }
 
@@ -32,7 +32,7 @@ void	put_blocks_left(t_tetri *tetri)
 {
 	int	i;
 	int	j;
-	
+
 	while (!(search_char_column_n(tetri, tetri->letter, 0)))
 	{
 		j = 0;
@@ -55,7 +55,7 @@ void	put_blocks_left(t_tetri *tetri)
 	}
 }
 
-int	search_char_column_n(t_tetri *tetri, char c, int n)
+int		search_char_column_n(t_tetri *tetri, char c, int n)
 {
 	int i;
 

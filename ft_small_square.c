@@ -6,15 +6,15 @@
 /*   By: mimazouz <mimazouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:23:18 by mimazouz          #+#    #+#             */
-/*   Updated: 2015/12/15 12:57:18 by fkoehler         ###   ########.fr       */
+/*   Updated: 2015/12/16 11:25:32 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-size_t		ft_square_size(int nb_tetri)
+int		ft_square_size(int nb_tetri)
 {
-	size_t	size;
+	int	size;
 
 	size = 2;
 	while (size * size < (nb_tetri * 4))
@@ -22,27 +22,27 @@ size_t		ft_square_size(int nb_tetri)
 	return (size);
 }
 
-char		**ft_init_square(size_t size)
+char	**ft_init_square(int size)
 {
-	size_t		l;
-	size_t		j;
+	int			l;
+	int			j;
 	char		**square;
 
 	l = 0;
-	if (!(square = (char **)malloc(sizeof(char *) * size + 1)));
+	if (!(square = (char **)malloc(sizeof(char *) * size + 1)))
+		return (0);
 	while (l < size)
 	{
-		if (!(square[l] = (char *)malloc(sizeof(char) * (size + 1))));
-			l++;
+		if (!(square[l] = (char *)malloc(sizeof(char) * (size + 1))))
+			return (0);
+		l++;
 	}
+	l--;
 	while (l >= 0)
 	{
 		j = 0;
 		while (j < size)
-		{
-			square[l][j] = '.';
-			j++;
-		}
+			square[l][j++] = '.';
 		square[l][j] = '\0';
 		l--;
 	}
@@ -50,12 +50,12 @@ char		**ft_init_square(size_t size)
 	return (square);
 }
 
-t_tetri		**ft_resolve_fillit(t_tetri **array, int nb_tetri)
+char	**ft_resolve_fillit(t_tetri **array, int nb_tetri)
 {
 	char	**square;
-	size_t	size;
+	int		size;
 	int		i;
-	
+
 	size = ft_square_size(nb_tetri);
 	square = ft_init_square(size);
 	while (!(fill_square(square, size, array, 0)))
@@ -69,7 +69,6 @@ t_tetri		**ft_resolve_fillit(t_tetri **array, int nb_tetri)
 		}
 		free(square);
 		square = ft_init_square(size);
-		fill_square(square, size, array, 0);
 	}
 	return (square);
 }

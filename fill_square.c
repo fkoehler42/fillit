@@ -6,16 +6,16 @@
 /*   By: fkoehler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:36:00 by fkoehler          #+#    #+#             */
-/*   Updated: 2015/12/15 13:07:02 by fkoehler         ###   ########.fr       */
+/*   Updated: 2015/12/16 11:25:02 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	check_place_for_tetri(char **square, t_tetri *tetri, size_t i, size_t j)
+int		check_place_for_tetri(char **square, t_tetri *tetri, int i, int j)
 {
-	size_t	k;
-	size_t	l;
+	int	k;
+	int	l;
 
 	k = 0;
 	while (k < tetri->height)
@@ -33,10 +33,10 @@ int	check_place_for_tetri(char **square, t_tetri *tetri, size_t i, size_t j)
 	return (1);
 }
 
-void	place_tetri(char **square, t_tetri *tetri, size_t i, size_t j)
+void	place_tetri(char **square, t_tetri *tetri, int i, int j)
 {
-	size_t	k;
-	size_t	l;
+	int	k;
+	int	l;
 
 	k = 0;
 	while (k < tetri->height)
@@ -52,11 +52,11 @@ void	place_tetri(char **square, t_tetri *tetri, size_t i, size_t j)
 	}
 }
 
-void	remove_tetri(char **square, t_tetri *tetri, size_t i, size_t j);
+void	remove_tetri(char **square, t_tetri *tetri, int i, int j)
 {
-	size_t	k;
-	size_t	l;
-	
+	int		k;
+	int		l;
+
 	k = 0;
 	while (k < tetri->height)
 	{
@@ -65,11 +65,13 @@ void	remove_tetri(char **square, t_tetri *tetri, size_t i, size_t j);
 		{
 			if (tetri->array[k][l] == tetri->letter)
 				square[i + k][j + l] = '.';
+			l++;
 		}
+		k++;
 	}
 }
 
-int	fill_square(char **square, size_t size, t_tetri **array, int n)
+int		fill_square(char **square, int size, t_tetri **array, int n)
 {
 	int	i;
 	int	j;
@@ -85,8 +87,10 @@ int	fill_square(char **square, size_t size, t_tetri **array, int n)
 			if (check_place_for_tetri(square, array[n], i, j))
 			{
 				place_tetri(square, array[n], i, j);
-				if (!(fill_square(square, size, array, n + 1)));
+				if (!(fill_square(square, size, array, n + 1)))
 					remove_tetri(square, array[n], i, j);
+				else
+					return (1);
 			}
 			j++;
 		}

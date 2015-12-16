@@ -6,7 +6,7 @@
 /*   By: mimazouz <mimazouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:03:59 by mimazouz          #+#    #+#             */
-/*   Updated: 2015/12/15 11:35:26 by fkoehler         ###   ########.fr       */
+/*   Updated: 2015/12/16 11:18:12 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int		isvalid_tetri(char *str, char c)
 	int	i;
 	int	neighbour;
 	int	nb_char;
-	
+
 	i = 0;
 	neighbour = 0;
 	nb_char = 0;
