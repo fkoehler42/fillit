@@ -6,7 +6,7 @@
 #    By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/16 11:28:33 by fkoehler          #+#    #+#              #
-#    Updated: 2015/12/16 15:52:54 by fkoehler         ###   ########.fr        #
+#    Updated: 2016/12/12 18:42:47 by fkoehler         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ put_blocks_up.c \
 read_tetri.c \
 set_tetri_size.c
 
-NAME = fillit 
+NAME = fillit
 
 FLAGS = -Wall -Werror -Wextra
 
